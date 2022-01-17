@@ -1,0 +1,22 @@
+git config --global user.email" "
+
+git config --global user.name" "
+
+git clone 
+
+git status 
+
+git add .
+
+git commit -m " "
+
+git push 
+
+
+ls
+cd
+git remote add origin 
+git remote -v
+git add .
+git commit -m " "
+git push origin master 
