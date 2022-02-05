@@ -1,0 +1,18 @@
+<?php
+    $courses =[ "course_name"=>"",
+               "trainer_name1"=>"",
+                "trainer_name2"=>"",
+                "course_day"=> "",
+                "day01"=>"Sunady",
+                "day02"=>"Monday",
+                "day03"=>"Tuesday",
+                "day04"=>"Wednesday",
+                "day05"=>"Thursday",
+                "training_room"=>"",
+                    ];
+     print_r($courses);
+       foreach ( $courses as $key => $value)
+            {
+              echo " $key : $value \n ";
+            }
+
