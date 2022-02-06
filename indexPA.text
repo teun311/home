@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/CSS.css">
+</head>
+<body>
+
+<section>
+    <div class="container  ">
+        <div class="row">
+            <div class="col-md-12 h-110"style="border: 1px solid lightgrey;"></div>
+        </div>
+    </div>
+</section>
+
+<nav class="nav navbar-expand-sm bg-light "style="border: 1px solid lightgray;" >
+    <div class="container ">
+
+        <div class="collapse navbar-collapse m-auto" id="menu">
+            <ul class="navbar-nav m-2" >
+                <li class="nav-item  ml-2 mr-2" ><a href=""class="nav-link text-dark"><b>সর্বশেষ</b></a></li>
+                <li class="nav-item  mr-2" ><a href=""class="nav-link text-dark" ><b>বিশেষ সংবাদ</b></a></li>
+                <li class="nav-item  mr-2"><a href=""class="nav-link text-dark"><b>রাজনীতি</b></a></li>
+                <li class="nav-item ml-2 mr-2"><a href=""class="nav-link text-dark"><b>করোনা ভাইরাস</b></a></li>
+                <li class="nav-item ml-2 mr-2"><a href=""class="nav-link text-dark"><b>বাংলাদেশ</b></a></li>
+                <li class="nav-item ml-2 mr-2"><a href=""class="nav-link text-dark"><b>বিশ্ব</b></a></li>
+                <li class="nav-item ml-2 mr-2"><a href=""class="nav-link text-dark"><b>বাণিজ্য</b></a></li>
+                <li class="nav-item ml-2 mr-2"><a href=""class="nav-link text-dark"><b>মতামত</b></a></li>
+                <li class="nav-item ml-2 mr-2"><a href=""class="nav-link text-dark"><b>খেলা</b></a></li>
+                <li class="nav-item ml-2 mr-2"><a href=""class="nav-link text-dark"><b>বিনোদন</b></a></li>
+                <li class="nav-item ml-2 mr-2"><a href=""class="nav-link text-dark"><b>চাকুরী</b></a></li>
+                <li class="nav-item ml-2 mr-2"><a href=""class="nav-link text-dark"><b>লাইফস্টাইল</b></a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+
+    <section class="py-3">
+        <div class="container border-bottom">
+            <div class="row">
+                <div class="col-md-9 border-right">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a href="" class="text-decoration-none">
+                                <div class="card ">
+                                    <img src="img/pa02.jpg" alt=""class="card-img-top">
+                                    <div class="card-body">
+                                        <h2 class="font-weight-bold fs-20">abcd efgh ijk lmn opq r stuv wx yz</h2>
+
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href=""class="text-decoration-none">
+                                <div class="card ">
+                                    <img src="img/pa02.jpg" alt=""class="card-img-top">
+                                    <div class="card-body">
+                                        <h2 class="font-weight-bold fs-20">abcd efgh ijk lmn opq r stuv wx yz</h2>
+
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="" class="text-decoration-none">
+                                <div class="card ">
+                                    <img src="img/pa02.jpg" alt=""class="card-img-top">
+                                    <div class="card-body">
+                                        <h2 class="font-weight-bold fs-20">abcd efgh ijk lmn opq r stuv wx yz</h2>
+
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="" class="text-decoration-none">
+                                <div class="card ">
+                                    <img src="img/pa02.jpg" alt=""class="card-img-top">
+                                    <div class="card-body">
+                                        <h2 class="font-weight-bold fs-20">abcd efgh ijk lmn opq r stuv wx yz</h2>
+
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href=""class="text-decoration-none">
+                                <div class="card ">
+                                    <img src="img/pa02.jpg" alt=""class="card-img-top">
+                                    <div class="card-body">
+                                        <h2 class="font-weight-bold fs-20">abcd efgh ijk lmn opq r stuv wx yz</h2>
+
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="" class="text-decoration-none">
+                                <div class="card ">
+                                    <img src="img/pa02.jpg" alt=""class="card-img-top">
+                                    <div class="card-body">
+                                        <h2 class="font-weight-bold fs-20">abcd efgh ijk lmn opq r stuv wx yz</h2>
+
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <a href="" class="text-decoration-none">
+                        <div class="card ">
+                            <img src="img/pa02.jpg" alt=""class="card-img-top">
+                            <div class="card-body">
+                                <h2 class="font-weight-bold fs-20">abcd efgh ijk lmn opq r stuv wx yz</h2>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 h-250" style="border: 1px solid gray"></div>
+                <div class="col-md-6 h-250" style="border: 1px solid gray"></div>
+                <div class="col-md-3 h-250" style="border: 1px solid gray"></div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 h-250">
+                    <div class="row">
+                        <div class="col-md-3 h-250"style="border: 1px solid black"></div>
+                        <div class="col-md-3 h-250"style="border: 1px solid black"></div>
+                        <div class="col-md-3 h-250"style="border: 1px solid black"></div>
+                        <div class="col-md-3 h-250"style="border: 1px solid black"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!--      <div class="card ">-->
+<!--        <img src="img/pa02.jpg" alt=""class="card-img-top">-->
+<!--        <div class="card-body">-->
+<!--            <h2 class="font-weight-bold fs-20">abcd efgh ijk lmn opq r stuv wx yz</h2>-->
+<!--            <p class="fs-13">asdf lkj yu iop erty mnbv qwe rtgb iolkm lk op lol asd erty ikm yhn bgt </p>-->
+<!--        </div>-->
+<!--    </div>-->
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/bootstrap.bundle.js"></script>
+
+</body>
+</html>
