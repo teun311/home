@@ -1,0 +1,211 @@
+{{--  Find Doctor Script Starts Here --}}
+<script>
+    $(document).on('keyup', function (e) {
+        e.preventDefault();
+        let search_string = $('#findDoctor').val();
+        let queryId = $('#specialityId').val();
+        let queryTitle = $('#specialityTitle').val();
+        $.ajax({
+            url: "{{ route('website.doctor.find') }}",
+            method: 'GET',
+            data: {'search_string': search_string, 'id': queryId},
+            success: function (res) {
+                $('.docs-list').html(res);
+                if (res.status == 'nothing_found') {
+                    $('.docs-list').html('<span class="text-danger fw-bolder text-center mt-2 fs-4">' + 'Nothing Found' + '</span>');
+                    console.log('Nothing Found');
+                } else {
+                    let card = '';
+                    $.each(res.doctors, function (key, value) {
+                        card += `  <div class="col-lg-4 col-md-6">
+                                   <div class="docs-card">
+                                   <div class="docs-card-top mb-2">
+                                   <div class="docs-card-image">
+                                   <a href="">
+                                   <img src="https://valerehealthcare.co/${value.image}" alt="Image">
+                                   </a>
+                                   </div>
+                                   <div class="docs-card-action">
+                                   <button type="button" class="btn p-0 me-1">
+                                   <img src="https://valerehealthcare.co/web/front/assets/images/doctors/icon/audio.svg" alt="Icon">
+                                   </button>
+                                   <button type="button" class="btn p-0">
+                                   <img src="https://valerehealthcare.co/web/front/assets/images/doctors/icon/video.svg" alt="Icon">
+                                   </button>
+                                   </div>
+                                   </div>
+                                   <div class="docs-card-info mb-2">
+                                   <p class="mb-0">NAME:</p>
+                                   <h4 class="mb-0"><a href="" class="text-primary">Dr.  ${value.first_name} ${value.last_name}</a></h4>
+                                   </div>
+                                   <div class="docs-card-info mb-2">
+                                   <p class="mb-0">DESIGNATION:</p>
+                                   <h6 class="mb-0">${value.current_designation}</h6>
+                                   </div>
+                                   <div class="d-flex mb-3">
+                                   <div class="docs-card-info me-5">
+                                   <p class="mb-0">SPECIALIZED:</p>
+                                   <h6 class="mb-0">${queryTitle}</h6>
+                                   </div>
+                                   <div class="docs-card-info">
+                                   <p class="mb-0">EXPERIENCE:</p>
+                                   <h6 class="mb-0">${value.experience_in_years} Years</h6>
+                                   </div>
+                                   </div>
+                                   <div class="docs-card-bottom">
+                                   <a href="https://valerehealthcare.co/website-doctors-detail/${value.id}" class="btn">Details</a>
+                                   </div>
+                                   </div>
+                                   </div>`;
+                    });
+                    $('.docs-list').html(card);
+                }
+            }
+        });
+    });
+</script>
+{{--  Find Doctor Script Ends Here --}}
+
+
+===========================================================================
+
+//Find Doctor =>
+    public function findDoc(Request $request)
+    {
+        $arr = explode(" ", $request->search_string);
+        if (count($arr) < 2) {
+            $arr[1] = $arr[0];
+        }
+
+        $a = $arr[0];
+        $b = $arr[1];
+
+        $docs = Doctor::where('speciality_id', $request->id)
+        ->where(function ($query) use ($a, $b) {
+            return $query->where('first_name', 'like', '%' . $a . '%')->orWhere('last_name', 'like', '%' . $a . '%')
+                ->orWhere('first_name', 'like', '%' . $b . '%')->orWhere('last_name', 'like', '%' . $b . '%');
+        })->where('trend',1)->get(['id', 'image', 'first_name', 'last_name', 'current_designation', 'experience_in_years']);
+
+
+        if ($docs->count() >= 1) {
+            return response()->json([
+                'doctors' => $docs,
+            ]);
+        } else {
+            return response()->json([
+                'status' => 'nothing_found',
+            ]);
+        }
+    }
+
+==========================================
+ <div class="row docs-list">
+
+
+
+
+============================================================================================================================
+<script>
+        $(document).ready(function(){
+            //Search
+            $(document).on('keyup',function (e) {
+                e.preventDefault();
+                let search_string = $('#searchSpeciality').val();
+                $.ajax({
+                    url:"{{ route('search.speciality') }}",
+                    method:'GET',
+                    data:{search_string:search_string},
+                    success:function (res) {
+                        $('.search-speciality').html(res);
+                        if(res.status=='nothing_found'){
+                            $('.search-speciality').html('<h2 class="text-center fw-bold text-danger">'+'Nothing Found'+'</h2>')
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+
+
+ public function searchSpeciality(Request $request){
+        $specialities = Speciality::where('title', 'like', $request->search_string.'__'.'%')
+            ->orderBy('id','desc')->get();
+        if($specialities->count()>=1){
+            return view('web.front.doctors.search-result', compact('specialities'))->render();
+        }else{
+            return response()->json([
+                'status'=>'nothing_found',
+            ]);
+        }
+    }
+
+
+<div class="row search-speciality mt-4">
+            @foreach($specialities as $speciality)
+            <div class="col-lg-2 col-md-3 mb-4">
+              <a href="{{route('website.doctor.list',['id'=>$speciality->id])}}" class="d-block h-100 card-organ shadow-sm p-2 rounded-3">
+                <div class="card-organ-image text-center">
+                  <img src="{{ asset($speciality->image) }}" alt="Organ Image" class="img-fluid" style="height: auto; width: auto;">
+                </div>
+                <h5 class="mb-0 text-center text-capitalize text-white mt-1" style="font-size: 15px; line-height: 20px;">{{$speciality->title}}</h5>
+              </a>
+            </div>
+            @endforeach
+
+
+
+
+==========================upadated==========================================
+============================================================================
+
+  public function searchSpeciality(Request $request){
+
+        $word = $this->RemoveSpecialChar($request->search_string);
+
+       // $word =$request->search_string;
+
+        if($word){
+            if (strlen($word)>3)
+            {
+                // return response()->json(['secound'=>'ok']);
+                $specialitiess = Speciality::whereRaw("MATCH(keyword) AGAINST(?)",$word)->get();
+                if($specialitiess->count() > 0){
+                    return view('web.front.doctors.search-result', ['specialities'=>$specialitiess]);
+                }else {
+                    return response()->json([
+                        'status'=>'nothing_found',
+                    ]);
+                }
+
+            }
+            elseif (strlen($word >0))
+            {
+                $specialities = Speciality::where('title', 'like',$word.'__'.'%')
+                    ->orderBy('id','desc')->get();
+                if($specialities->count()>0){
+                    return view('web.front.doctors.search-result', compact('specialities'))->render();
+                }else{
+                    return response()->json([
+                        'phase'=>'speciality',
+                        'status'=>'nothing_found',
+                    ]);
+                }
+            }
+
+
+        }else{
+
+            return view('web.front.doctors.search-result', ['specialities'=>Speciality::all()]);
+
+        }
+
+    }
+
+
+ public function RemoveSpecialChar($str)
+    {
+            $res = str_replace(array('"','`',';','<','>','\'','{','}','(',')',']','[')  ,'',$str);
+            return $res;
+
+    }
